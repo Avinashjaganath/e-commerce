@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Payment Status</title>
+</head>
+<body>
+    <header>
+        <h1>Payment Status</h1>
+        <a href="index.html">Return to Homepage</a>
+    </header>
+    <main>
+        <div id="check">
+        <div id="Pay"></div>
+        
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const status = params.get('status');
+            const paymentStatusDiv = document.getElementById('Pay');
+            
+            if (paymentStatusDiv) {
+                paymentStatusDiv.innerHTML = (status === 'success') 
+                    ? "<h2>Payment Successful!</h2>" 
+                    : "<h2>Payment Failed. Please try again.</h2><h3><a href='checkout.html'>Retry</a></h3></div>";
+            }
+        });
+    </script>
+</body>
+</html>
